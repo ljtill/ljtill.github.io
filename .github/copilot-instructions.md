@@ -15,7 +15,7 @@ deployment via GitHub Actions.
 - **`favicon.ico`** — Site favicon.
 - **`.nojekyll`** — Disables Jekyll processing on GitHub Pages.
 - **`.github/workflows/deploy.yml`** — GitHub Actions workflow that deploys the
-  repo root to GitHub Pages on push to `main`.
+  repo root to GitHub Pages on push to `main` or manual `workflow_dispatch`.
 
 ## CSS Conventions
 
