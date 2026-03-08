@@ -6,6 +6,12 @@
     <meta name="color-scheme" content="light dark" />
     <title>404 - Lyon Till</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" fetchpriority="low" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+    />
     <style>
       @layer reset, base, layout;
 
@@ -21,9 +27,9 @@
 
       @layer base {
         :root {
-          --color-text: light-dark(#1a1a1a, #e5e5e5);
-          --color-text-muted: light-dark(#555, #aaa);
-          --color-bg: light-dark(#fff, #111);
+          --color-text: light-dark(#1a1a1a, #d4d4d4);
+          --color-text-muted: light-dark(#555, #888);
+          --color-bg: light-dark(#fff, #0a0a0a);
         }
 
         html {
@@ -31,10 +37,12 @@
         }
 
         body {
-          font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-            "Helvetica Neue", Arial, sans-serif;
+          font-family: "Outfit", system-ui, sans-serif;
+          font-synthesis: none;
+          letter-spacing: -0.01em;
           color: var(--color-text);
           background-color: var(--color-bg);
+          line-height: 1.5;
           min-block-size: 100dvh;
         }
       }
@@ -51,6 +59,7 @@
           & h1 {
             font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
             font-weight: 300;
+            text-wrap: balance;
           }
 
           & p {
