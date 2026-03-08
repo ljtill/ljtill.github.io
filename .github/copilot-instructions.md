@@ -8,41 +8,34 @@ deployment via GitHub Actions.
 
 ## Architecture
 
-- **`index.html`** — Single-page site with all CSS inlined via `<style>`.
-  Contains the bio content, header, footer with social links, and JSON-LD
-  structured data.
-- **`404.html`** — Custom error page served by GitHub Pages for missing routes.
-- **`favicon.ico`** — Site favicon.
-- **`.nojekyll`** — Disables Jekyll processing on GitHub Pages.
-- **`.github/workflows/deploy.yml`** — GitHub Actions workflow that deploys the
-  repo root to GitHub Pages on push to `main` or manual `workflow_dispatch`.
+Single-page site. All CSS is inlined via `<style>` in each HTML file — there are
+no external stylesheets. Both `index.html` and `404.html` share the same design
+language (reset layer, color tokens, font stack, `light-dark()` theming) and must
+stay visually consistent when either is changed.
+
+The `index.html` includes JSON-LD structured data (`Person` schema) that must be
+kept in sync with the bio content.
 
 ## CSS Conventions
 
-All styling is inlined in each HTML file. The CSS uses **modern features only**
-(no legacy fallbacks):
+Modern features only — no legacy fallbacks, no vendor prefixes:
 
-- **`@layer`** for style organization (`reset`, `base`, `layout`, `components`)
-- **Native CSS nesting** (no preprocessor)
-- **Logical properties** (`margin-inline`, `padding-block`, `inline-size`, etc.)
+- **`@layer`** ordering: `reset`, `base`, `layout`, `components`
+- **Native CSS nesting** (`& selector`)
+- **Logical properties** (`margin-inline`, `padding-block`, `inline-size`) — never
+  physical equivalents
 - **`light-dark()`** with `color-scheme: light dark` for automatic dark mode
 - **`clamp()`** for fluid responsive typography
 - **`dvh`** viewport units
-- **CSS custom properties** for theming
+- **CSS custom properties** on `:root` for all design tokens (colours, spacing,
+  type scale)
 
 ## HTML Conventions
 
-- Semantic elements throughout: `<header>`, `<main>`, `<footer>`, `<nav>`
-- `<meta name="color-scheme" content="light dark">` for native OS color scheme
+- Semantic elements: `<header>`, `<main>`, `<footer>`, `<nav>`
+- `<meta name="color-scheme" content="light dark">` on every page
 - `fetchpriority` hints on resources
 - `aria-label` on icon-only links
-- JSON-LD structured data (`Person` schema)
-
-## Deployment
-
-Deployment is fully automated. Pushing to `main` triggers the GitHub Actions
-workflow which uploads the repo root and deploys to GitHub Pages. No build step
-is required.
 
 ## Git
 
