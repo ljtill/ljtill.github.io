@@ -26,9 +26,11 @@ Modern features only — no legacy fallbacks, no vendor prefixes:
   physical equivalents
 - **`light-dark()`** with `color-scheme: light dark` for automatic dark mode
 - **`clamp()`** for fluid responsive typography
+- **`text-wrap: balance`** on headings, **`text-wrap: pretty`** on body text
 - **`dvh`** viewport units
 - **CSS custom properties** on `:root` for all design tokens (colours, spacing,
   type scale)
+- **`system-ui, sans-serif`** font stack — no external fonts, no Google Fonts
 
 ## HTML Conventions
 
