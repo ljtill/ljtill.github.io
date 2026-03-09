@@ -10,12 +10,6 @@
     />
     <title>Lyon Till</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" fetchpriority="low" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -48,7 +42,7 @@
 
       @layer base {
         :root {
-          --font-family: "Outfit", system-ui, sans-serif;
+          --font-family: system-ui, sans-serif;
           --max-inline: 40rem;
           --space-sm: 1rem;
           --space-lg: 2.5rem;
@@ -69,8 +63,6 @@
         body {
           font-family: var(--font-family);
           font-size: var(--text-body);
-          font-synthesis: none;
-          letter-spacing: -0.01em;
           color: var(--color-text);
           background-color: var(--color-bg);
           line-height: 1.5;
