@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
+    <meta name="robots" content="noindex">
     <title>404 - Lyon Till</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" fetchpriority="low">
     <style>
@@ -62,6 +63,26 @@
             text-wrap: pretty;
             color: var(--color-text-muted);
           }
+
+          & a {
+            margin-block-start: 1rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            text-decoration-color: var(--color-text-muted);
+            text-underline-offset: 0.2em;
+            transition: color 0.2s;
+          }
+
+          & a:hover,
+          & a:focus-visible {
+            color: var(--color-text);
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            & a {
+              transition: none;
+            }
+          }
         }
       }
     </style>
@@ -70,6 +91,7 @@
     <main class="error">
       <h1>404</h1>
       <p>Couldn't find what you're looking for.</p>
+      <a href="/">Back to home</a>
     </main>
   </body>
 </html>
