@@ -6,6 +6,12 @@ Personal website built with **plain HTML and modern CSS** — no frameworks, no
 build tools, no dependencies. Hosted on **GitHub Pages** with automated
 deployment via GitHub Actions.
 
+## Build, Test, Lint
+
+There is **no build step, no test suite, and no linter**. Edit HTML files
+directly and preview by opening them in a browser. Don't search for or add
+tooling unless explicitly asked.
+
 ## Architecture
 
 Single-page site. All CSS is inlined via `<style>` in each HTML file — there are
@@ -15,6 +21,10 @@ stay visually consistent when either is changed.
 
 The `index.html` includes JSON-LD structured data (`Person` schema) that must be
 kept in sync with the bio content.
+
+`.nojekyll` at the repo root disables Jekyll processing on GitHub Pages. The
+deploy workflow (`.github/workflows/deploy.yml`) uploads the entire repo root as
+the Pages artifact on every push to `main`.
 
 ## CSS Conventions
 
