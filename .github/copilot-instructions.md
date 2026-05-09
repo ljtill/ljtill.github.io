@@ -15,16 +15,17 @@ tooling unless explicitly asked.
 ## Architecture
 
 Single-page site. All CSS is inlined via `<style>` in each HTML file — there are
-no external stylesheets. Both `index.html` and `404.html` share the same design
-language (reset layer, color tokens, font stack, `light-dark()` theming) and must
-stay visually consistent when either is changed.
+no external stylesheets. Public website files live in `site/`, with shared
+assets in `site/assets/`. Both `site/index.html` and `site/404.html` share the
+same design language (reset layer, color tokens, font stack, `light-dark()`
+theming) and must stay visually consistent when either is changed.
 
-The `index.html` includes JSON-LD structured data (`Person` schema) that must be
-kept in sync with the bio content.
+The `site/index.html` includes JSON-LD structured data (`Person` schema) that
+must be kept in sync with the bio content.
 
-`.nojekyll` at the repo root disables Jekyll processing on GitHub Pages. The
-deploy workflow (`.github/workflows/deploy.yml`) uploads the entire repo root as
-the Pages artifact on every push to `main`.
+`site/.nojekyll` disables Jekyll processing on GitHub Pages. The deploy workflow
+(`.github/workflows/deploy.yml`) uploads `site/` as the Pages artifact on every
+push to `main`.
 
 ## CSS Conventions
 
