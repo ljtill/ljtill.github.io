@@ -1,12 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
     <meta name="robots" content="noindex">
     <title>Page not found · Lyon Till</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" fetchpriority="low">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
       @layer reset, base, layout, components;
 
@@ -23,7 +26,10 @@
       @layer base {
         :root {
           --font-family: system-ui, sans-serif;
+          --space-sm: 1rem;
+          --space-lg: 2.5rem;
           --text-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem);
+          --text-display: clamp(2rem, 1.5rem + 2.5vw, 3rem);
           --color-text: light-dark(#1a1a1a, #d4d4d4);
           --color-text-muted: light-dark(#555, #888);
           --color-bg: light-dark(#fff, #0a0a0a);
@@ -51,9 +57,15 @@
           justify-content: center;
           min-block-size: 100dvh;
           gap: 0.5rem;
+          padding-inline: var(--space-sm);
+          text-align: center;
+        }
+      }
 
+      @layer components {
+        .error {
           & h1 {
-            font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+            font-size: var(--text-display);
             font-weight: 300;
             text-wrap: balance;
           }
@@ -65,21 +77,19 @@
           }
 
           & a {
-            margin-block-start: 1rem;
+            margin-block-start: var(--space-sm);
             font-weight: 300;
             color: var(--color-text-muted);
             text-decoration-color: var(--color-text-muted);
             text-underline-offset: 0.2em;
             transition: color 0.2s;
-          }
 
-          & a:hover,
-          & a:focus-visible {
-            color: var(--color-text);
-          }
+            &:hover,
+            &:focus-visible {
+              color: var(--color-text);
+            }
 
-          @media (prefers-reduced-motion: reduce) {
-            & a {
+            @media (prefers-reduced-motion: reduce) {
               transition: none;
             }
           }
@@ -89,8 +99,8 @@
   </head>
   <body>
     <main class="error">
-      <h1>404</h1>
-      <p>Couldn't find what you're looking for.</p>
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist.</p>
       <a href="/">Back to home</a>
     </main>
   </body>
